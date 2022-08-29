@@ -1,0 +1,128 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Я не маю уявлення, як розв'язати цю місію.
+    </div>
+    <div class="answer">
+        Прочитай про рядковий метод <a target="_blank" href="https://www.w3schools.com/python/ref_string_isdigit.asp">str.isdigit()</a>.
+        Він повертає True якщо всі символи в рядку - цифри, інакше False:
+        <br />
+        <br />
+        <pre class="brush: python">
+text = "1a2"
+print(text.isdigit())
+
+# output
+False
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Добре, але ж мені потрібно перевірити кожен символ в рядку. Як це зробити?
+    </div>
+    <div class="answer">
+        Використай вбудовану функцію <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a>
+        з методом isdigit() і вхідним рядком як її аргументами:
+        <br />
+        <br />
+        <pre class="brush: python">
+dat = map(str.isdigit, text)        
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ця операція створює об'єкт map. Я не знаю як продовжити.
+    </div>
+    <div class="answer">
+        Якщо ти конвертуєш цей об'єкт map в список з <a target="_blank" href="https://www.w3schools.com/python/python_lists.asp">list()</a> конструктором, ти отримаєш:
+        <br />
+        <br />
+        <pre class="brush: python">
+print(list(dat))
+
+# output
+[True, False, True]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Оскільки True - для символів-цифр, то як мені їх тепер порахувати?
+    </div>
+    <div class="answer">
+        Python рахує логічні значення True/False як 1/0. Тож ти можеш використати
+        звичайну функцію sum(). І ця функція може працювати з об'єктом map як своїм аргументом!
+        Немає потреби в перетворенні у список:
+        <br />
+        <br />
+        <pre class="brush: python">
+sum(map(str.isdigit, text))        
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        То як має виглядати моє остаточне рішення?
+    </div>
+    <div class="answer">
+        Це вже майже все. Лише додай визначення функції і return:
+        <br />
+        <br />
+        <pre class="brush: python">
+def count_digits(text: str) -> int:
+
+    return sum(map(str.isdigit, text)) 
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Покажи мені більше розв'язків!<br />
+        Адже я хочу стати справжнім Python Ніндзею!
+    </div>
+    <div class="answer">
+        Звісно, тримай!<br />
+        Використай модуль регулярних виразів щоб знайти всі цифри з відповідною маскою
+        і поверни довжину цього списку знахідок:
+        <br />
+        <br />
+        <pre class="brush: python">
+import re
+
+
+def count_digits(text):
+
+    return len(re.findall(r"\d", text))
+# або
+    return len(re.findall('[0-9]',text))
+        </pre>
+        Чітке покрокове рішення: ітерування по рядку, перевірка кожного символа
+        і збільшення лічильника у випадку якщо символ - цифра:
+        <br />
+        <br />
+        <pre class="brush: python">
+def count_digits(text: str) -> int:
+
+    a = 0
+    for i in text:
+        if i.isdigit():
+            a += 1
+            
+    return a
+        </pre>
+        <br />
+        <br />
+        Тисни "Best solutions" в меню місії і побачиш багато інших цікавих рішень!
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+    </div>
+    <div class="answer">
+        Приємно це чути!
+    </div>
+</div>
+</body>
