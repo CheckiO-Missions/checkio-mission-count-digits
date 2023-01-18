@@ -1,31 +1,36 @@
 <body data-author="freeman_lex">
 <div class="question-answer">
     <div class="question">
-        Я не маю уявлення, як розв'язати цю місію.
+        <p>
+            Я не маю уявлення, як розв'язати цю місію.
+        </p>
     </div>
     <div class="answer">
-        Прочитай про рядковий метод <a target="_blank" href="https://www.w3schools.com/python/ref_string_isdigit.asp">str.isdigit()</a>.
-        Він повертає True якщо всі символи в рядку - цифри, інакше False:
-        <br />
-        <br />
+        <p>
+            Прочитай про рядковий метод <a target="_blank" href="https://www.w3schools.com/python/ref_string_isdigit.asp">str.isdigit()</a>. Він повертає <b class="code">True</b> якщо всі символи в рядку - цифри, інакше <b class="code">False</b>:
+        </p>
         <pre class="brush: python">
 text = "1a2"
 print(text.isdigit())
-
-# output
-False
         </pre>
+        <div class="output">
+            <p>Вивід:</p>
+            <pre>
+False        
+            </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Добре, але ж мені потрібно перевірити кожен символ в рядку. Як це зробити?
+        <p>
+            Добре, але ж мені потрібно перевірити кожен символ в рядку. Як це зробити?
+        </p>
     </div>
     <div class="answer">
-        Використай вбудовану функцію <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a>
-        з методом isdigit() і вхідним рядком як її аргументами:
-        <br />
-        <br />
+        <p>
+            Використай вбудовану функцію <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a> з методом <b class="code">isdigit()</b> і вхідним рядком як її аргументами:
+        </p>
         <pre class="brush: python">
 dat = map(str.isdigit, text)        
         </pre>
@@ -33,31 +38,35 @@ dat = map(str.isdigit, text)
 </div>
 <div class="question-answer">
     <div class="question">
-        Ця операція створює об'єкт map. Я не знаю як продовжити.
+        <p>
+            Ця операція створює об'єкт <b class="code">map</b>. Я не знаю як продовжити.
+        </p>
     </div>
     <div class="answer">
-        Якщо ти конвертуєш цей об'єкт map в список з <a target="_blank" href="https://www.w3schools.com/python/python_lists.asp">list()</a> конструктором, ти отримаєш:
-        <br />
-        <br />
+        <p>
+            Якщо ти конвертуєш цей об'єкт map в список з <a target="_blank" href="https://www.w3schools.com/python/python_lists.asp">list()</a> конструктором, ти отримаєш:
+        </p>
         <pre class="brush: python">
 print(list(dat))
-
-# output
-[True, False, True]
         </pre>
+        <div class="output">
+            <p>Вивід:</p>
+            <pre>
+[True, False, True]        
+            </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Я зрозумів, що для символів-цифр повертається True. Як мені тепер порахувати
-        ці логічні значення у списку?
+        <p>
+            Я зрозумів, що для символів-цифр повертається <b class="code">True</b>. Як мені тепер порахувати ці логічні значення у списку?
+        </p>
     </div>
     <div class="answer">
-        Python рахує логічні значення True/False як 1/0. Тож ти можеш використати
-        звичайну функцію sum(). І ця функція може працювати з об'єктом map як своїм аргументом!
-        Немає потреби в перетворенні у список:
-        <br />
-        <br />
+        <p>
+            Python рахує логічні значення True/False як 1/0. Тож ти можеш використати звичайну функцію <b class="code">sum()</b>. І ця функція може працювати з об'єктом map як своїм аргументом! Немає потреби в перетворенні у список:
+        </p>
         <pre class="brush: python">
 sum(map(str.isdigit, text))        
         </pre>
@@ -65,12 +74,14 @@ sum(map(str.isdigit, text))
 </div>
 <div class="question-answer">
     <div class="question">
-        То як має виглядати моє остаточне рішення?
+        <p>
+            То як має виглядати моє остаточне рішення?
+        </p>
     </div>
     <div class="answer">
-        Це вже майже все. Лише додай визначення функції і return:
-        <br />
-        <br />
+        <p>
+            Це вже майже все. Лише додай визначення функції і <b class="code">return</b>:
+        </p>
         <pre class="brush: python">
 def count_digits(text: str) -> int:
 
@@ -80,29 +91,32 @@ def count_digits(text: str) -> int:
 </div>
 <div class="question-answer">
     <div class="question">
-        Покажи мені більше розв'язків!<br />
-        Адже я хочу стати справжнім Python Ніндзею!
+        <p>
+            Покажи мені більше розв'язків!<br /> 
+            Адже я хочу стати справжнім Python Ніндзею!
+        </p>
     </div>
     <div class="answer">
-        Звісно, тримай!<br />
-        Використай модуль регулярних виразів щоб знайти всі цифри з відповідною маскою
-        і поверни довжину цього списку знахідок:
-        <br />
-        <br />
+        <p>
+            Звісно, тримай!
+        </p>
+        <p>
+            Використай модуль регулярних виразів щоб знайти всі цифри з відповідною маскою і поверни довжину цього списку знахідок:
+        </p>
         <pre class="brush: python">
 import re
 
 
-def count_digits(text):
+def count_digits(text: string) -> int:
 
     return len(re.findall(r"\d", text))
 # або
     return len(re.findall('[0-9]',text))
         </pre>
-        Чітке покрокове рішення: ітерування по рядку, перевірка кожного символа
+        <p>
+            Чітке покрокове рішення: ітерування по рядку, перевірка кожного символа
         і збільшення лічильника у випадку якщо символ - цифра:
-        <br />
-        <br />
+        </p>
         <pre class="brush: python">
 def count_digits(text: str) -> int:
 
@@ -115,15 +129,21 @@ def count_digits(text: str) -> int:
         </pre>
         <br />
         <br />
-        Тисни "Best solutions" в меню місії і побачиш багато інших цікавих рішень!
+        <p><b>
+            Тисни "Best solutions" в меню місії і побачиш багато інших цікавих рішень!
+        </b></p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+        <p>
+            Дякую! Тепер я знаю і розумію більше! Все працює як слід!
+        </p>
     </div>
     <div class="answer">
-        Приємно це чути!
+        <p>
+            Приємно це чути!
+        </p>
     </div>
 </div>
 </body>

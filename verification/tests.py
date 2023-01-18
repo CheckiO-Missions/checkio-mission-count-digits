@@ -32,12 +32,12 @@ TESTS = {
         {
             "input": [""],
             "answer": 0
-        }
+        },
     ],
     "Extra": [
         {
             "input": ["It is the natural number following 4 and preceding 6  and is a prime number"],
             "answer": 2
-        }
+        },
     ]
 }

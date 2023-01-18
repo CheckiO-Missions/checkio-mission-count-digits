@@ -1,31 +1,36 @@
 <body data-author="freeman_lex">
 <div class="question-answer">
     <div class="question">
-        I have no idea how to start solving this mission.
+        <p>
+            I have no idea how to start solving this mission.
+        </p>
     </div>
     <div class="answer">
-        Read about string method <a target="_blank" href="https://www.w3schools.com/python/ref_string_isdigit.asp">str.isdigit()</a>.
-        It returns True if all characters in string are digits, else False:
-        <br />
-        <br />
+        <p>
+            Read about string method <a target="_blank" href="https://www.w3schools.com/python/ref_string_isdigit.asp">str.isdigit()</a>. It returns <b class="code">True</b> if all characters in string are digits, else <b class="code">False</b>:
+        </p>
         <pre class="brush: python">
 text = "1a2"
 print(text.isdigit())
-
-# output
-False
         </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+False        
+            </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Ok, but I need to check each character in input string. How to do it?
+        <p>
+            Ok, but I need to check each character in input string. How to do it?
+        </p>
     </div>
     <div class="answer">
-        Use build-in function <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a>
-        with method isdigit() and input string as its arguments:
-        <br />
-        <br />
+        <p>
+            Use build-in function <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a> with method <b class="code">isdigit()</b> and input string as its arguments:
+        </p>
         <pre class="brush: python">
 dat = map(str.isdigit, text)        
         </pre>
@@ -33,30 +38,35 @@ dat = map(str.isdigit, text)
 </div>
 <div class="question-answer">
     <div class="question">
-        This operation creates map object. I don't know how to proceed.
+        <p>
+            This operation creates <b class="code">map</b> object. I don't know how to proceed.
+        </p>
     </div>
     <div class="answer">
-        If you convert this map object into list with <a target="_blank" href="https://www.w3schools.com/python/python_lists.asp">list()</a> Constructor you receive:
-        <br />
-        <br />
+        <p>
+            If you convert this map object into list with <a target="_blank" href="https://www.w3schools.com/python/python_lists.asp">list()</a> onstructor, you receive:
+        </p>
         <pre class="brush: python">
 print(list(dat))
-
-# output
-[True, False, True]
         </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+[True, False, True]        
+            </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Since True is for digit characters, how to count them now?
+        <p>
+            Since <b class="code">True</b> is for digit characters, how to count them now?
+        </p>
     </div>
     <div class="answer">
-        Python counts boolean True/False as 1/0. So you may use simple sum() function.
-        And this function can work with map object as its argument! No need to
-        convert into list:
-        <br />
-        <br />
+        <p>
+            Python counts boolean True/False as 1/0. So you may use simple <b class="code">sum()</b> function. And this function can work with map object as its argument! No need to convert into list:
+        </p>
         <pre class="brush: python">
 sum(map(str.isdigit, text))        
         </pre>
@@ -64,12 +74,14 @@ sum(map(str.isdigit, text))
 </div>
 <div class="question-answer">
     <div class="question">
-        So, how my final solution should look like?
+        <p>
+            So, how my final solution should look like?
+        </p>
     </div>
     <div class="answer">
-        It is almost all. Just add function declaration and return statement:
-        <br />
-        <br />
+        <p>
+            It is almost all. Just add function declaration and return statement:
+        </p>
         <pre class="brush: python">
 def count_digits(text: str) -> int:
 
@@ -79,29 +91,33 @@ def count_digits(text: str) -> int:
 </div>
 <div class="question-answer">
     <div class="question">
-        Show me more solutions!<br />
-        'Cause I wanna be a real Python Ninnjaa!
+        <p>
+            Show me more solutions!<br />
+            'Cause I wanna be a real Python Ninnjaa!
+        </p>
     </div>
     <div class="answer">
-        Sure, grab it!<br />
-        Use regular expressions module to find all character with digit masks and
+        <p>
+            Sure, grab it!
+        </p>
+        <p>
+            Use regular expressions module to find all character with digit masks and
         return length of this list of findings. 
-        <br />
-        <br />
+        </p>
         <pre class="brush: python">
 import re
 
 
-def count_digits(text):
+def count_digits(text: string) -> int:
 
     return len(re.findall(r"\d", text))
 # or
     return len(re.findall('[0-9]',text))
         </pre>
-        Clear step-by-step solution: iterate over the string, check each character
+        <p>
+            Clear step-by-step solution: iterate over the string, check each character
         and increase counter in case character is digit:
-        <br />
-        <br />
+        </p>
         <pre class="brush: python">
 def count_digits(text: str) -> int:
 
@@ -112,18 +128,21 @@ def count_digits(text: str) -> int:
 
     return a
         </pre>
-        <br />
-        <br />
-        Click "Best solutions" at mission menu and see a lot of other
-        interesting solutions!
+        <p><b>
+            Click "Best solutions" at mission menu and see a lot of other interesting solutions!
+        </b></p>
     </div>
 </div>
 <div class="question-answer">
     <div class="question">
-        Thanks! I know and understand more now! Everything works fine!
+        <p>
+            Thanks! I know and understand more now! Everything works fine!
+        </p>
     </div>
     <div class="answer">
-        Glad to hear it!
+        <p>
+            Glad to hear it!
+        </p>
     </div>
 </div>
 </body>
