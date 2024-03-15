@@ -1,0 +1,148 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ich habe keine Ahnung, wie ich mit der Lösung dieser Aufgabe beginnen soll.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Lesen Sie über die String-Methode <a target="_blank" href="https://www.w3schools.com/python/ref_string_isdigit.asp">str.isdigit()</a>. Sie gibt <b class="code">True</b> zurück, wenn alle Zeichen in string Ziffern sind, sonst <b class="code">False</b>:
+        </p>
+        <pre class="brush: python">
+text = "1a2"
+print(text.isdigit())
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+False        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Ok, aber ich muss jedes Zeichen in der Eingabezeichenkette überprüfen. Wie kann ich das tun?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Verwenden Sie die eingebaute Funktion <a target="_blank" href="https://www.w3schools.com/python/ref_func_map.asp">map()</a> mit der Methode <b class="code">isdigit()</b> und dem Eingabe-String als Argument:
+        </p>
+        <pre class="brush: python">
+dat = map(str.isdigit, text)        
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Dieser Vorgang erstellt das Objekt <b class="code">map</b>. Ich weiß nicht, wie ich fortfahren soll.
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Wenn Sie dieses Map-Objekt mit <a target="_blank" href="https://www.w3schools.com/python/python_lists.asp">list()</a> onstructor in eine Liste umwandeln, erhalten Sie:
+        </p>
+        <pre class="brush: python">
+print(list(dat))
+        </pre>
+        <div class="output">
+            <p>Ausgabe:</p>
+            <pre>
+[True, False, True]        
+            </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Da <b class="code">True</b> für Ziffern steht, wie kann man sie jetzt zählen?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Python zählt boolesche Wahr/Falsch als 1/0. Sie können also die einfache Funktion <b class="code">sum()</b> verwenden. Und diese Funktion kann mit einem Map-Objekt als Argument arbeiten! Sie müssen sie nicht in eine Liste umwandeln:
+        </p>
+        <pre class="brush: python">
+sum(map(str.isdigit, text))        
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Wie sollte also meine endgültige Lösung aussehen?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Es ist fast alles. Fügen Sie einfach eine Funktionsdeklaration und eine Return-Anweisung hinzu:
+        </p>
+        <pre class="brush: python">
+def count_digits(text: str) -> int:
+
+    return sum(map(str.isdigit, text)) 
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Zeigen Sie mir mehr Lösungen!<br />
+            denn ich möchte ein echter Python-Ninjaa sein!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Klar, schnapp sie dir!
+        </p>
+        <p>
+            Verwenden Sie das Modul für reguläre Ausdrücke, um alle Zeichen mit Ziffernmasken zu finden und
+        geben Sie die Länge dieser Liste von Fundstellen zurück. 
+        </p>
+        <pre class="brush: python">
+import re
+
+
+def count_digits(text: string) -> int:
+
+    return len(re.findall(r"\d", text))
+# or
+    return len(re.findall('[0-9]',text))
+        </pre>
+        <p>
+            Klare Schritt-für-Schritt-Lösung: Iterieren Sie über die Zeichenfolge, prüfen Sie jedes Zeichen
+        und erhöhen Sie den Zähler, falls das Zeichen eine Ziffer ist:
+        </p>
+        <pre class="brush: python">
+def count_digits(text: str) -> int:
+
+    a = 0
+    for i in text:
+        if i.isdigit():
+            a += 1
+
+    return a
+        </pre>
+        <p><b>
+            Click "Best solutions" at mission menu and see a lot of other interesting solutions!
+        </b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Danke! Ich weiß und verstehe jetzt mehr! Alles funktioniert bestens!
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Freut mich zu hören!
+        </p>
+    </div>
+</div>
+</body>
